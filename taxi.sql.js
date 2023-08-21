@@ -11,20 +11,20 @@ await db.migrate();
 // Function to join the queue
 export async function joinQueue() {
     const sql = `INSERT INTO queue (timestamp) VALUES (CURRENT_TIMESTAMP)`;
-    await db.execute(sql);
+    //await db.execute(sql);
 }
 
 
 export async function leaveQueue() {
     const sql = `DELETE FROM queue WHERE id = ?`;
     const id = await db.query('SELECT id FROM queue ORDER BY id DESC LIMIT 1');
-    await db.execute(sql, [id[0]['id']]);
+    //await db.execute(sql, [id[0]['id']]);
 }
 
 
 export async function joinTaxiQueue() {
     const sql = `INSERT INTO taxi_queue (timestamp) VALUES (CURRENT_TIMESTAMP)`;
-    await db.execute(sql);
+    //await db.execute(sql);
 }
 
 
